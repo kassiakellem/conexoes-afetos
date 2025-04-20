@@ -2,8 +2,8 @@ import type { Metadata } from "next"
 import ConnectionGame from "@/components/connection-game"
 
 export const metadata: Metadata = {
-  title: "Connection Cards | Get to Know Each Other",
-  description: "An interactive card game to help people connect and get to know each other better",
+  title: "Conexões&Afetos",
+  description: "Um jogo de cartas interativo para ajudar as pessoas a se conhecerem melhor.",
 }
 
 export default function HomePage() {
