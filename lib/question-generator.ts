@@ -1,5 +1,20 @@
+
+
+// Tipagens para maior segurança e clareza
+type CategoryContent = {
+  [key: string]: string[];
+};
+
+type TemplatesContent = {
+  [key: string]: string[];
+};
+
+type FillInsContent = {
+  [key: string]: string[];
+};
+
 // Seed questions for each category
-const seedQuestions = {
+const seedQuestions: CategoryContent = {
   casual: [
     "Qual é sua comida favorita e por quê?",
     "Se você pudesse viajar para qualquer lugar, onde seria?",
@@ -85,10 +100,10 @@ const seedQuestions = {
     "O que você acha de roleplay ou fantasias?",
     "Qual é a sua maior curiosidade que nunca experimentou?",
   ],
-}
+};
 
 // Seed challenges for the challenge category
-const seedChallenges = {
+const seedChallenges: CategoryContent = {
   casual: [
     "Desafio: Conte uma história engraçada sobre sua infância.",
     "Desafio: Faça uma imitação de alguém famoso.",
@@ -124,174 +139,215 @@ const seedChallenges = {
     "Desafio: Conte sobre uma fantasia que você tem.",
     "Desafio: Faça uma massagem de 30 segundos nos ombros de alguém (com consentimento).",
   ],
-}
+};
 
 // Templates for generating questions
-const templates = {
+const templates: TemplatesContent = {
   casual: [
     "Se você pudesse ter um jantar com qualquer {pessoa} da história, quem seria?",
     "Qual {atividade} você gostaria de experimentar pelo menos uma vez na vida?",
     "Se você pudesse morar em qualquer {lugar}, onde seria?",
     "Qual {objeto} você não consegue viver sem?",
     "Se você pudesse dominar qualquer {habilidade} instantaneamente, qual seria?",
-    "Qual é o seu {evento} favorito do ano?",
-    "Se você pudesse mudar uma coisa sobre {assunto}, o que seria?",
+    "Qual é o seu {evento_casual} favorito do ano?", // Renomeado
+    "Se você pudesse mudar uma coisa sobre {assunto} de seu passado, o que seria?", // Adicionado "de seu passado" para mais contexto e para evitar duplicação do placeholder 'assunto'
     "Qual {comida} você poderia comer todos os dias?",
-    "Qual foi a melhor {experiência} que você já teve?",
-    "Se você pudesse visitar qualquer {período} da história, qual seria?",
+    "Qual foi a melhor {experiência_pessoal} que você já teve?", // Renomeado
+    "Se você pudesse visitar qualquer {período_historico} da história, qual seria?", // Renomeado
   ],
   fun: [
-    "Se você fosse um {animal}, qual seria e por quê?",
-    "Qual é a {situação} mais engraçada que já aconteceu com você?",
-    "Se você pudesse ter qualquer {objeto} mágico, o que seria?",
-    "Qual {superpoder} incomum você gostaria de ter?",
-    "Se sua vida fosse um {gênero} de filme, quem interpretaria você?",
-    "Qual é a {atividade} mais maluca da sua lista de desejos?",
-    "Se você pudesse trocar de vida com um {personagem} por um dia, quem seria?",
-    "Qual {habilidade} estranha você tem que poucas pessoas sabem?",
-    "Se você pudesse inventar um novo {item}, o que seria?",
-    "Qual é a {teoria} mais estranha em que você secretamente acredita?",
+    "Se você fosse um {animal_imaginario}, qual seria e por quê?", // Renomeado
+    "Qual é a {situação_engracada} mais engraçada que já aconteceu com você?", // Renomeado
+    "Se você pudesse ter qualquer {objeto_magico}, o que seria?", // Renomeado
+    "Qual {superpoder_inusitado} incomum você gostaria de ter?", // Renomeado
+    "Se sua vida fosse um {genero_filme} de filme, quem interpretaria você?", // Renomeado
+    "Qual é a {atividade_maluca} mais maluca da sua lista de desejos?", // Renomeado
+    "Se você pudesse trocar de vida com um {personagem_ficticio} por um dia, quem seria?", // Renomeado
+    "Qual {habilidade_estranha} estranha você tem que poucas pessoas sabem?", // Renomeado
+    "Se você pudesse inventar um novo {item_inovador}, o que seria?", // Renomeado
+    "Qual é a {teoria_bizarra} mais estranha em que você secretamente acredita?", // Renomeado
   ],
   deep: [
-    "Como você acha que {evento} moldou quem você é hoje?",
-    "Qual {decisão} você tomaria diferente se pudesse voltar no tempo?",
-    "O que você acha que as pessoas {ação} sobre você?",
-    "Como você define {conceito} em sua própria vida?",
-    "Qual {experiência} mudou fundamentalmente sua visão de mundo?",
-    "O que você acha que é mais importante: {opção1} ou {opção2}?",
-    "Como você lida com {emoção} em sua vida?",
-    "Qual {valor} você nunca comprometeria?",
-    "O que você acha que as pessoas deveriam {ação} mais em suas vidas?",
-    "Como você imagina que será {período} a partir de agora?",
+    "Como você acha que {evento_vida} moldou quem você é hoje?", // Renomeado
+    "Qual {decisão_dificil} você tomaria diferente se pudesse voltar no tempo?", // Renomeado
+    "O que você acha que as pessoas {percepcao_sobre_voce} sobre você?", // Renomeado
+    "Como você define {conceito_vida} em sua própria vida?", // Renomeado
+    "Qual {experiencia_transformadora} mudou fundamentalmente sua visão de mundo?", // Renomeado
+    "O que você acha que é mais importante: {opcao_profunda1} ou {opcao_profunda2}?", // Renomeado
+    "Como você lida com {emocao_desafiadora} em sua vida?", // Renomeado
+    "Qual {valor_fundamental} você nunca comprometeria?", // Renomeado
+    "O que você acha que as pessoas deveriam {acao_recomendada} mais em suas vidas?", // Renomeado
+    "Como você imagina que será {futuro_pessoal} a partir de agora?", // Renomeado
   ],
   romantic: [
-    "O que você considera o aspecto mais importante de {relacionamento}?",
-    "Como você expressa {sentimento} em um relacionamento?",
-    "Qual é o seu {gesto} romântico favorito?",
-    "O que você acha sobre {conceito} em relacionamentos?",
-    "Como você sabe quando {ação} alguém?",
-    "Qual é a sua opinião sobre {assunto} em um relacionamento?",
-    "O que você acha que é essencial para {tipo} relacionamento?",
-    "Como você lida com {problema} em um relacionamento?",
-    "O que você valoriza mais: {opção1} ou {opção2} em um parceiro?",
-    "Qual {experiência} romântica você gostaria de viver?",
+    "O que você considera o aspecto mais importante de {relacionamento_tipo}?", // Renomeado
+    "Como você expressa {sentimento_amoroso} em um relacionamento?", // Renomeado
+    "Qual é o seu {gesto_romantico_favorito}?", // Renomeado
+    "O que você acha sobre {conceito_relacionamento} em relacionamentos?", // Renomeado
+    "Como você sabe quando está {acao_amorosa} alguém?", // Renomeado
+    "Qual é a sua opinião sobre {assunto_relacionamento} em um relacionamento?", // Renomeado
+    "O que você acha que é essencial para {tipo_relacionamento_saudavel} relacionamento?", // Renomeado
+    "Como você lida com {problema_relacionamento} em um relacionamento?", // Renomeado
+    "O que você valoriza mais: {qualidade_parceiro1} ou {qualidade_parceiro2} em um parceiro?", // Renomeado
+    "Qual {experiencia_romantica_sonho} você gostaria de viver?", // Renomeado
   ],
   erotic: [
-    "O que você acha sobre {atividade_intima}?",
-    "Você já experimentou {experiencia} antes?",
-    "Qual é sua opinião sobre {tema_adulto}?",
-    "O que você acha mais excitante: {opcao1} ou {opcao2}?",
-    "Você prefere {preferencia1} ou {preferencia2}?",
-    "Qual é a coisa mais {adjetivo} que você já fez?",
-    "Se pudesse realizar qualquer {fantasia}, qual seria?",
-    "O que você acha de {pratica} com um parceiro?",
-    "Qual {parte_corpo} você acha mais atraente?",
-    "Você já teve alguma experiência com {situacao}?",
+    "O que você acha sobre {atividade_intima_erotica}?", // Renomeado
+    "Você já experimentou {experiencia_ousada} antes?", // Renomeado
+    "Qual é sua opinião sobre {tema_adulto_erotico}?", // Renomeado
+    "O que você acha mais excitante: {preferencia_erotica1} ou {preferencia_erotica2}?", // Renomeado
+    "Você prefere {preferencia_prazer1} ou {preferencia_prazer2}?", // Renomeado
+    "Qual é a coisa mais {adjetivo_atrevido} que você já fez?", // Renomeado
+    "Se pudesse realizar qualquer {fantasia_secreta}, qual seria?", // Renomeado
+    "O que você acha de {pratica_sexual} com um parceiro?", // Renomeado
+    "Qual {parte_corpo_sensual} você acha mais atraente?", // Renomeado
+    "Você já teve alguma experiência com {situacao_intima}?", // Renomeado
   ],
-}
+};
 
 // Templates for generating challenges
-const challengeTemplates = {
+const challengeTemplates: TemplatesContent = {
   casual: [
     "Desafio: Conte uma história sobre {tema_casual} sem usar a palavra '{palavra_proibida}'.",
-    "Desafio: Imite {celebridade} por 30 segundos.",
-    "Desafio: Mostre a {tipo_foto} mais recente no seu celular.",
-    "Desafio: Fale sobre {assunto_casual} por 1 minuto sem parar.",
-    "Desafio: Faça uma ligação rápida para {contato} e diga '{mensagem_aleatória}'.",
-    "Desafio: Troque de lugar com a pessoa à sua {direção} até a próxima rodada.",
-    "Desafio: Faça uma selfie com {pose_engraçada} e mostre para o grupo.",
-    "Desafio: Deixe a pessoa à sua direita escolher sua {mídia_social} e postar algo (apropriado).",
-    "Desafio: Fale com sotaque de {região} até seu próximo turno.",
-    "Desafio: Desenhe {objeto} de olhos fechados e mostre para todos.",
+    "Desafio: Imite {celebridade_imitacao} por 30 segundos.", // Renomeado
+    "Desafio: Mostre a {tipo_foto_celular} mais recente no seu celular.", // Renomeado
+    "Desafio: Fale sobre {assunto_aleatorio_casual} por 1 minuto sem parar.", // Renomeado
+    "Desafio: Faça uma ligação rápida para {contato_ligacao} e diga '{mensagem_aleatoria_ligacao}'.", // Renomeado
+    "Desafio: Troque de lugar com a pessoa à sua {direcao_troca} até a próxima rodada.", // Renomeado
+    "Desafio: Faça uma selfie com {pose_engracada_selfie} e mostre para o grupo.", // Renomeado
+    "Desafio: Deixe a pessoa à sua direita escolher sua {midia_social_post} e postar algo (apropriado).", // Renomeado
+    "Desafio: Fale com sotaque de {regiao_sotaque} até seu próximo turno.", // Renomeado
+    "Desafio: Desenhe {objeto_desenho} de olhos fechados e mostre para todos.", // Renomeado
   ],
   fun: [
-    "Desafio: Dance como se estivesse em um {tipo_dança} por 30 segundos.",
-    "Desafio: Faça sua melhor imitação de {animal}.",
-    "Desafio: Cante o refrão de {música_popular} com toda emoção.",
-    "Desafio: Faça uma mímica de {atividade_cotidiana} e deixe os outros adivinharem.",
-    "Desafio: Conte uma piada de {tema_piada} na hora.",
-    "Desafio: Faça uma careta que represente {emoção} e tire uma foto.",
-    "Desafio: Invente um comercial de TV para {produto_comum}.",
-    "Desafio: Faça uma pose de {esporte} como se fosse para uma foto profissional.",
-    "Desafio: Crie um slogan para {marca_fictícia} em 30 segundos.",
+    "Desafio: Dance como se estivesse em um {tipo_danca_exotica} por 30 segundos.", // Renomeado
+    "Desafio: Faça sua melhor imitação de {animal_imitacao}.", // Renomeado
+    "Desafio: Cante o refrão de {musica_popular_cantar} com toda emoção.", // Renomeado
+    "Desafio: Faça uma mímica de {atividade_cotidiana_mimica} e deixe os outros adivinharem.", // Renomeado
+    "Desafio: Conte uma piada de {tema_piada_tipo} na hora.", // Renomeado
+    "Desafio: Faça uma careta que represente {emocao_careta} e tire uma foto.", // Renomeado
+    "Desafio: Invente um comercial de TV para {produto_comum_comercial}.", // Renomeado
+    "Desafio: Faça uma pose de {esporte_pose} como se fosse para uma foto profissional.", // Renomeado
+    "Desafio: Crie um slogan para {marca_ficticia_slogan} em 30 segundos.", // Renomeado
     "Desafio: Faça uma rima com o nome de cada pessoa do grupo.",
   ],
   deep: [
-    "Desafio: Compartilhe uma verdade sobre {tema_pessoal} que ninguém aqui sabe.",
-    "Desafio: Descreva um momento em que você sentiu {emoção_intensa}.",
-    "Desafio: Revele algo que você {ação} mas nunca admitiu antes.",
-    "Desafio: Compartilhe um objetivo de vida relacionado a {área_vida} que você ainda não realizou.",
-    "Desafio: Diga uma coisa sobre {aspecto_pessoal} que você gostaria de mudar em si mesmo.",
-    "Desafio: Conte sobre uma vez que você {situação_difícil} e como superou.",
-    "Desafio: Compartilhe uma lição de vida que você aprendeu com {experiência}.",
-    "Desafio: Descreva seu maior {tipo_medo} e por que ele te assusta.",
-    "Desafio: Conte sobre uma decisão difícil relacionada a {tema_decisão} que você teve que tomar.",
-    "Desafio: Compartilhe um sonho ou aspiração relacionado a {sonho} que você nunca contou a ninguém.",
+    "Desafio: Compartilhe uma verdade sobre {tema_pessoal_profundo} que ninguém aqui sabe.", // Renomeado
+    "Desafio: Descreva um momento em que você sentiu {emocao_intensa_sentida}.", // Renomeado
+    "Desafio: Revele algo que você {acao_nao_admitida} mas nunca admitiu antes.", // Renomeado
+    "Desafio: Compartilhe um objetivo de vida relacionado a {area_vida_objetivo} que você ainda não realizou.", // Renomeado
+    "Desafio: Diga uma coisa sobre {aspecto_pessoal_melhoria} que você gostaria de mudar em si mesmo.", // Renomeado
+    "Desafio: Conte sobre uma vez que você {situacao_dificil_superada} e como superou.", // Renomeado
+    "Desafio: Compartilhe uma lição de vida que você aprendeu com {experiencia_aprendizado}.", // Renomeado
+    "Desafio: Descreva seu maior {tipo_medo_profundo} e por que ele te assusta.", // Renomeado
+    "Desafio: Conte sobre uma decisão difícil relacionada a {tema_decisao_dificil} que você teve que tomar.", // Renomeado
+    "Desafio: Compartilhe um sonho ou aspiração relacionado a {sonho_aspiracao} que você nunca contou a ninguém.", // Renomeado
   ],
   romantic: [
-    "Desafio: Dê um elogio sincero sobre {característica} para cada pessoa do grupo.",
-    "Desafio: Demonstre como você flertaria com alguém em {cenário}.",
-    "Desafio: Faça uma declaração romântica para {objeto_sala} como se fosse uma pessoa.",
-    "Desafio: Conte sobre seu {experiência_romântica} mais memorável.",
-    "Desafio: Descreva seu encontro perfeito em {local_romântico}.",
-    "Desafio: Demonstre como você reagiria se alguém te pedisse em {compromisso}.",
-    "Desafio: Escreva uma mensagem romântica curta para {pessoa_imaginária}.",
-    "Desafio: Faça uma serenata improvisada sobre {tema_amor} para o grupo.",
-    "Desafio: Conte como seria seu {evento_romântico} ideal.",
-    "Desafio: Demonstre como você daria um {gesto_romântico} a alguém especial.",
+    "Desafio: Dê um elogio sincero sobre {caracteristica_elogio} para cada pessoa do grupo.", // Renomeado
+    "Desafio: Demonstre como você flertaria com alguém em {cenario_flerte}.", // Renomeado
+    "Desafio: Faça uma declaração romântica para {objeto_sala_romantico} como se fosse uma pessoa.", // Renomeado
+    "Desafio: Conte sobre seu {experiencia_romantica_memoravel} mais memorável.", // Renomeado
+    "Desafio: Descreva seu encontro perfeito em {local_romantico_detalhado}.", // Renomeado
+    "Desafio: Demonstre como você reagiria se alguém te pedisse em {compromisso_romantico}.", // Renomeado
+    "Desafio: Escreva uma mensagem romântica curta para {pessoa_imaginaria_mensagem}.", // Renomeado
+    "Desafio: Faça uma serenata improvisada sobre {tema_amor_serenata} para o grupo.", // Renomeado
+    "Desafio: Conte como seria seu {evento_romantico_ideal}.", // Renomeado
+    "Desafio: Demonstre como você daria um {gesto_romantico_dar} a alguém especial.", // Renomeado
   ],
   erotic: [
-    "Desafio: Faça sua expressão mais sedutora enquanto {ação_comum}.",
+    "Desafio: Faça sua expressão mais sedutora enquanto {acao_comum_sedutora}.", // Renomeado
     "Desafio: Demonstre como você dançaria para seduzir alguém (mantenha apropriado).",
-    "Desafio: Conte sobre uma fantasia envolvendo {cenário_fantasia}.",
+    "Desafio: Conte sobre uma fantasia envolvendo {cenario_fantasia_erotica}.", // Renomeado
     "Desafio: Faça uma massagem de 30 segundos nos ombros de alguém (com consentimento).",
-    "Desafio: Descreva o que você considera o {adjetivo_sensual} em um parceiro.",
-    "Desafio: Sussurre algo provocante sobre {tema_provocante} no ouvido de alguém (com consentimento).",
-    "Desafio: Demonstre como você reagiria se alguém te {ação_sedutora} inesperadamente.",
-    "Desafio: Conte sobre uma vez que você se sentiu {emoção_sensual} com alguém inesperado.",
-    "Desafio: Descreva o que você faria se tivesse uma noite inteira em {local_íntimo} com alguém especial.",
-    "Desafio: Demonstre sua técnica de {ação_romântica} (mantenha apropriado).",
+    "Desafio: Descreva o que você considera o {adjetivo_sensual_parceiro} em um parceiro.", // Renomeado
+    "Desafio: Sussurre algo provocante sobre {tema_provocante_sussurro} no ouvido de alguém (com consentimento).", // Renomeado
+    "Desafio: Demonstre como você reagiria se alguém te {acao_sedutora_inesperada} inesperadamente.", // Renomeado
+    "Desafio: Conte sobre uma vez que você se sentiu {emocao_sensual_inesperada} com alguém inesperado.", // Renomeado
+    "Desafio: Descreva o que você faria se tivesse uma noite inteira em {local_intimo_sonho} com alguém especial.", // Renomeado
+    "Desafio: Demonstre sua técnica de {acao_romantica_sensual} (mantenha apropriado).", // Renomeado
   ],
-}
+};
 
 // Fill-in options for templates
-const fillIns = {
+const fillIns: FillInsContent = {
   pessoa: ["celebridade", "figura histórica", "líder mundial", "cientista", "artista", "filósofo", "atleta"],
   atividade: ["esporte radical", "hobby", "viagem", "experiência cultural", "atividade artística", "desafio físico"],
   lugar: ["país", "cidade", "tipo de casa", "ambiente", "paisagem", "clima", "continente"],
   objeto: ["dispositivo tecnológico", "item do dia a dia", "luxo", "ferramenta", "acessório", "item vintage"],
   habilidade: ["idioma", "instrumento musical", "esporte", "arte", "habilidade técnica", "talento", "ofício"],
-  evento: ["feriado", "celebração", "festival", "temporada", "ocasião especial", "tradição"],
+  // Renomeado para evitar conflito com 'evento_vida'
+  evento_casual: ["feriado", "celebração", "festival", "temporada", "ocasião especial", "tradição"],
   assunto: ["sua rotina", "sua casa", "seu trabalho", "sua cidade", "o mundo", "a tecnologia"],
   comida: ["sobremesa", "prato principal", "lanche", "comida de rua", "culinária", "refeição caseira"],
-  experiência: ["viagem", "aventura", "conquista", "surpresa", "presente", "momento"],
-  período: ["década", "era", "século", "momento histórico", "ano", "época"],
-  animal: ["animal selvagem", "animal doméstico", "criatura mitológica", "inseto", "ave", "mamífero"],
-  situação: ["situação embaraçosa", "coincidência", "mal-entendido", "surpresa", "acidente engraçado"],
-  superpoder: ["habilidade mental", "poder físico", "capacidade sobrenatural", "talento extraordinário"],
-  gênero: ["comédia", "drama", "ação", "romance", "ficção científica", "fantasia", "terror"],
-  personagem: ["personagem de filme", "celebridade", "figura histórica", "personagem de livro"],
-  item: ["gadget", "aplicativo", "serviço", "produto", "invenção", "dispositivo"],
-  teoria: ["teoria da conspiração", "ideia filosófica", "conceito científico", "crença popular"],
-  evento: ["desafio", "sucesso", "fracasso", "relacionamento", "viagem", "decisão importante"],
-  decisão: ["escolha de carreira", "decisão financeira", "escolha de relacionamento", "mudança de vida"],
-  ação: ["não entendem", "apreciam", "criticam", "admiram", "subestimam", "superestimam"],
-  conceito: ["felicidade", "sucesso", "amor", "liberdade", "segurança", "realização"],
-  opção1: ["dinheiro", "tempo", "saúde", "conhecimento", "conexões", "experiências"],
-  opção2: ["fama", "segurança", "aventura", "estabilidade", "paixão", "tranquilidade"],
-  emoção: ["medo", "raiva", "tristeza", "ansiedade", "estresse", "incerteza", "decepção"],
-  valor: ["honestidade", "lealdade", "integridade", "respeito", "compaixão", "coragem"],
-  período: ["5 anos", "10 anos", "20 anos", "sua velhice", "o próximo capítulo da sua vida"],
-  relacionamento: ["um relacionamento longo", "um primeiro encontro", "uma amizade romântica", "um casamento"],
-  sentimento: ["amor", "carinho", "admiração", "gratidão", "desejo", "compromisso"],
-  gesto: ["presente", "surpresa", "declaração", "ritual", "tradição", "demonstração pública"],
-  conceito: ["monogamia", "compromisso", "espaço pessoal", "comunicação aberta", "romance"],
-  assunto: ["ciúmes", "expectativas", "planos futuros", "finanças", "família", "comunicação"],
-  tipo: ["saudável", "duradouro", "apaixonado", "equilibrado", "feliz", "significativo"],
-  problema: ["discordâncias", "diferenças de opinião", "expectativas diferentes", "pressão externa"],
-  opção1: ["senso de humor", "inteligência", "aparência", "ambição", "gentileza", "criatividade"],
-  opção2: ["estabilidade", "espontaneidade", "paixão", "compatibilidade", "comunicação", "valores compartilhados"],
-  atividade_intima: [
+  // Renomeado
+  experiencia_pessoal: ["viagem", "aventura", "conquista", "surpresa", "presente", "momento"],
+  // Renomeado
+  período_historico: ["década", "era", "século", "momento histórico", "ano", "época"],
+  // Renomeado
+  animal_imaginario: ["animal selvagem", "animal doméstico", "criatura mitológica", "inseto", "ave", "mamífero"],
+  // Renomeado
+  situação_engracada: ["situação embaraçosa", "coincidência", "mal-entendido", "surpresa", "acidente engraçado"],
+  // Renomeado
+  objeto_magico: ["anel de invisibilidade", "varinha mágica", "lâmpada do gênio", "capa de levitação", "amuleto da sorte"],
+  // Renomeado
+  superpoder_inusitado: ["ler mentes", "teletransporte", "controlar o tempo", "falar com animais", "curar doenças", "voar"],
+  // Renomeado
+  genero_filme: ["comédia", "drama", "ação", "romance", "ficção científica", "fantasia", "terror"],
+  // Renomeado
+  personagem_ficticio: ["personagem de filme", "celebridade", "figura histórica", "personagem de livro"],
+  // Renomeado
+  item_inovador: ["gadget", "aplicativo", "serviço", "produto", "invenção", "dispositivo"],
+  // Renomeado
+  habilidade_estranha: ["dobrar a língua", "fazer malabarismo", "andar de monociclo", "imitar sons de animais", "resolver cubo mágico rapidamente"],
+  // Renomeado
+  teoria_bizarra: ["teoria da conspiração", "ideia filosófica", "conceito científico", "crença popular"],
+  // Renomeado para evitar conflito com 'evento_casual'
+  evento_vida: ["desafio", "sucesso", "fracasso", "relacionamento", "viagem", "decisão importante"],
+  // Renomeado
+  decisão_dificil: ["escolha de carreira", "decisão financeira", "escolha de relacionamento", "mudança de vida"],
+  // Renomeado
+  percepcao_sobre_voce: ["não entendem", "apreciam", "criticam", "admiram", "subestimam", "superestimam"],
+  // Renomeado
+  conceito_vida: ["felicidade", "sucesso", "amor", "liberdade", "segurança", "realização"],
+  // Renomeado
+  experiencia_transformadora: ["viagem", "aventura", "conquista", "perda", "encontro", "desafio"],
+  // Renomeado
+  opcao_profunda1: ["dinheiro", "tempo", "saúde", "conhecimento", "conexões", "experiências"],
+  // Renomeado
+  opcao_profunda2: ["fama", "segurança", "aventura", "estabilidade", "paixão", "tranquilidade"],
+  // Renomeado
+  emocao_desafiadora: ["medo", "raiva", "tristeza", "ansiedade", "estresse", "incerteza", "decepção"],
+  // Renomeado
+  valor_fundamental: ["honestidade", "lealdade", "integridade", "respeito", "compaixão", "coragem"],
+  // Renomeado
+  acao_recomendada: ["refletir", "meditar", "se expressar", "ouvir os outros", "ser mais gentil", "perdoar"],
+  // Renomeado
+  futuro_pessoal: ["5 anos", "10 anos", "20 anos", "sua velhice", "o próximo capítulo da sua vida"],
+  // Renomeado
+  relacionamento_tipo: ["um relacionamento longo", "um primeiro encontro", "uma amizade romântica", "um casamento"],
+  // Renomeado
+  sentimento_amoroso: ["amor", "carinho", "admiração", "gratidão", "desejo", "compromisso"],
+  // Renomeado
+  gesto_romantico_favorito: ["presente", "surpresa", "declaração", "ritual", "tradição", "demonstração pública"],
+  // Renomeado
+  conceito_relacionamento: ["monogamia", "compromisso", "espaço pessoal", "comunicação aberta", "romance"],
+  // Renomeado
+  acao_amorosa: ["está apaixonado por", "está interessado em", "se importa com"],
+  // Renomeado
+  assunto_relacionamento: ["ciúmes", "expectativas", "planos futuros", "finanças", "família", "comunicação"],
+  // Renomeado
+  tipo_relacionamento_saudavel: ["saudável", "duradouro", "apaixonado", "equilibrado", "feliz", "significativo"],
+  // Renomeado
+  problema_relacionamento: ["discordâncias", "diferenças de opinião", "expectativas diferentes", "pressão externa"],
+  // Renomeado
+  qualidade_parceiro1: ["senso de humor", "inteligência", "aparência", "ambição", "gentileza", "criatividade"],
+  // Renomeado
+  qualidade_parceiro2: ["estabilidade", "espontaneidade", "paixão", "compatibilidade", "comunicação", "valores compartilhados"],
+  // Renomeado
+  experiencia_romantica_sonho: ["viagem romântica", "jantar à luz de velas", "escapada de fim de semana", "pedido de casamento surpresa"],
+  // Renomeado
+  atividade_intima_erotica: [
     "sexting",
     "jogos de sedução",
     "massagens sensuais",
@@ -300,7 +356,8 @@ const fillIns = {
     "banho a dois",
     "strip-tease",
   ],
-  experiencia: [
+  // Renomeado
+  experiencia_ousada: [
     "um encontro às cegas",
     "sexo ao ar livre",
     "uma noite de três",
@@ -308,7 +365,8 @@ const fillIns = {
     "uma experiência BDSM leve",
     "uma massagem tântrica",
   ],
-  tema_adulto: [
+  // Renomeado
+  tema_adulto_erotico: [
     "brinquedos adultos",
     "lingeries sensuais",
     "jogos eróticos",
@@ -316,13 +374,20 @@ const fillIns = {
     "vídeos caseiros",
     "sexo por telefone",
   ],
-  opcao1: ["preliminares longas", "encontros rápidos", "luzes acesas", "ambientes românticos", "manhãs", "noites"],
-  opcao2: ["ir direto ao ponto", "sessões longas", "escuridão total", "ambientes selvagens", "tardes", "madrugadas"],
-  preferencia1: ["ser dominante", "receber oral", "posições clássicas", "ambientes silenciosos", "sexo espontâneo"],
-  preferencia2: ["ser submisso(a)", "fazer oral", "posições mais ousadas", "gemidos altos", "sexo planejado"],
-  adjetivo: ["ousada", "excitante", "arriscada", "intensa", "selvagem", "sensual", "provocante"],
-  fantasia: ["fantasia sexual", "experiência a três", "roleplay", "cenário", "fetiche"],
-  pratica: [
+  // Renomeado
+  preferencia_erotica1: ["preliminares longas", "encontros rápidos", "luzes acesas", "ambientes românticos", "manhãs", "noites"],
+  // Renomeado
+  preferencia_erotica2: ["ir direto ao ponto", "sessões longas", "escuridão total", "ambientes selvagens", "tardes", "madrugadas"],
+  // Renomeado
+  preferencia_prazer1: ["ser dominante", "receber oral", "posições clássicas", "ambientes silenciosos", "sexo espontâneo"],
+  // Renomeado
+  preferencia_prazer2: ["ser submisso(a)", "fazer oral", "posições mais ousadas", "gemidos altos", "sexo planejado"],
+  // Renomeado
+  adjetivo_atrevido: ["ousada", "excitante", "arriscada", "intensa", "selvagem", "sensual", "provocante"],
+  // Renomeado
+  fantasia_secreta: ["fantasia sexual", "experiência a três", "roleplay", "cenário", "fetiche"],
+  // Renomeado
+  pratica_sexual: [
     "sexo oral",
     "sexo anal",
     "uso de brinquedos",
@@ -331,161 +396,233 @@ const fillIns = {
     "massagem erótica",
     "sexo em lugares públicos",
   ],
-  parte_corpo: ["parte do corpo", "característica física", "atributo físico", "traço físico"],
-  situacao: ["sexo casual", "amizade colorida", "sexo em grupo", "swing", "voyeurismo", "exibicionismo"],
+  // Renomeado
+  parte_corpo_sensual: ["parte do corpo", "característica física", "atributo físico", "traço físico"],
+  // Renomeado
+  situacao_intima: ["sexo casual", "amizade colorida", "sexo em grupo", "swing", "voyeurismo", "exibicionismo"],
 
   // Challenge-specific fill-ins
   tema_casual: ["sua infância", "sua primeira viagem", "seu trabalho", "sua família", "seu hobby favorito"],
   palavra_proibida: ["eu", "mas", "tipo", "como", "então", "muito", "legal"],
-  celebridade: ["um político famoso", "um cantor pop", "um ator de Hollywood", "um apresentador de TV"],
-  tipo_foto: ["selfie", "foto de comida", "foto de paisagem", "foto com amigos", "foto de animal de estimação"],
-  assunto_casual: ["seu filme favorito", "sua comida preferida", "seu último final de semana", "suas férias ideais"],
-  contato: ["um amigo próximo", "um familiar", "a última pessoa que você conversou"],
-  mensagem_aleatória: ["estou pensando em você", "adivinha onde estou?", "você não vai acreditar no que aconteceu"],
-  direção: ["direita", "esquerda"],
-  pose_engraçada: ["cara de peixe", "sobrancelhas levantadas", "bochecha inflada", "olhos cruzados"],
-  mídia_social: ["status do WhatsApp", "story do Instagram", "tweet", "bio do perfil"],
-  região: ["carioca", "nordestino", "mineiro", "gaúcho", "paulistano"],
-  objeto: ["um elefante", "uma casa", "um carro", "uma árvore", "um smartphone"],
+  // Renomeado
+  celebridade_imitacao: ["um político famoso", "um cantor pop", "um ator de Hollywood", "um apresentador de TV"],
+  // Renomeado
+  tipo_foto_celular: ["selfie", "foto de comida", "foto de paisagem", "foto com amigos", "foto de animal de estimação"],
+  // Renomeado
+  assunto_aleatorio_casual: ["seu filme favorito", "sua comida preferida", "seu último final de semana", "suas férias ideais"],
+  // Renomeado
+  contato_ligacao: ["um amigo próximo", "um familiar", "a última pessoa que você conversou"],
+  // Renomeado
+  mensagem_aleatoria_ligacao: ["estou pensando em você", "adivinha onde estou?", "você não vai acreditar no que aconteceu"],
+  // Renomeado
+  direcao_troca: ["direita", "esquerda"],
+  // Renomeado
+  pose_engracada_selfie: ["cara de peixe", "sobrancelhas levantadas", "bochecha inflada", "olhos cruzados"],
+  // Renomeado
+  midia_social_post: ["status do WhatsApp", "story do Instagram", "tweet", "bio do perfil"],
+  // Renomeado
+  regiao_sotaque: ["carioca", "nordestino", "mineiro", "gaúcho", "paulistano"],
+  // Renomeado
+  objeto_desenho: ["um elefante", "uma casa", "um carro", "uma árvore", "um smartphone"],
 
-  tipo_dança: ["balé", "funk", "tango", "hip hop", "dança do ventre", "forró"],
-  animal: ["macaco", "gato", "cachorro", "leão", "galinha", "pato"],
-  música_popular: ["uma música sertaneja", "um funk", "um pagode", "um rock clássico", "um pop atual"],
-  atividade_cotidiana: ["escovar os dentes", "dirigir", "cozinhar", "fazer exercícios", "tomar banho"],
-  tema_piada: ["sogra", "político", "médico", "professor", "bar"],
-  emoção: ["felicidade", "tristeza", "surpresa", "medo", "nojo", "raiva"],
-  produto_comum: ["pasta de dente", "sabonete", "refrigerante", "cereal matinal", "detergente"],
-  esporte: ["futebol", "natação", "yoga", "levantamento de peso", "corrida"],
-  marca_fictícia: ["um novo energético", "um aplicativo revolucionário", "um serviço de streaming", "um restaurante"],
+  // Renomeado
+  tipo_danca_exotica: ["balé", "funk", "tango", "hip hop", "dança do ventre", "forró"],
+  // Renomeado
+  animal_imitacao: ["macaco", "gato", "cachorro", "leão", "galinha", "pato"],
+  // Renomeado
+  musica_popular_cantar: ["uma música sertaneja", "um funk", "um pagode", "um rock clássico", "um pop atual"],
+  // Renomeado
+  atividade_cotidiana_mimica: ["escovar os dentes", "dirigir", "cozinhar", "fazer exercícios", "tomar banho"],
+  // Renomeado
+  tema_piada_tipo: ["sogra", "político", "médico", "professor", "bar"],
+  // Renomeado
+  emocao_careta: ["felicidade", "tristeza", "surpresa", "medo", "nojo", "raiva"],
+  // Renomeado
+  produto_comum_comercial: ["pasta de dente", "sabonete", "refrigerante", "cereal matinal", "detergente"],
+  // Renomeado
+  esporte_pose: ["futebol", "natação", "yoga", "levantamento de peso", "corrida"],
+  // Renomeado
+  marca_ficticia_slogan: ["um novo energético", "um aplicativo revolucionário", "um serviço de streaming", "um restaurante"],
 
-  tema_pessoal: ["seus medos", "seus sonhos", "sua infância", "seus relacionamentos", "sua carreira"],
-  emoção_intensa: ["extremamente vulnerável", "completamente realizado", "profundamente triste", "intensamente feliz"],
-  ação: ["sempre quis fazer", "secretamente gosta", "tem vergonha de admitir", "se arrepende de ter feito"],
-  área_vida: ["carreira", "relacionamentos", "saúde", "aventuras", "aprendizado", "família"],
-  aspecto_pessoal: ["sua personalidade", "seus hábitos", "sua aparência", "suas habilidades sociais"],
-  situação_difícil: ["falhou miseravelmente", "foi rejeitado", "perdeu algo importante", "enfrentou um grande medo"],
-  experiência: ["um fracasso", "uma perda", "uma vitória inesperada", "um relacionamento", "uma viagem"],
-  tipo_medo: ["medo irracional", "medo da infância", "medo existencial", "medo social"],
-  tema_decisão: ["carreira", "amor", "amizade", "família", "mudança de vida"],
-  sonho: ["viagem", "carreira", "relacionamento", "habilidade", "conquista pessoal"],
+  // Renomeado
+  tema_pessoal_profundo: ["seus medos", "seus sonhos", "sua infância", "seus relacionamentos", "sua carreira"],
+  // Renomeado
+  emocao_intensa_sentida: ["extremamente vulnerável", "completamente realizado", "profundamente triste", "intensamente feliz"],
+  // Renomeado
+  acao_nao_admitida: ["sempre quis fazer", "secretamente gosta", "tem vergonha de admitir", "se arrepende de ter feito"],
+  // Renomeado
+  area_vida_objetivo: ["carreira", "relacionamentos", "saúde", "aventuras", "aprendizado", "família"],
+  // Renomeado
+  aspecto_pessoal_melhoria: ["sua personalidade", "seus hábitos", "sua aparência", "suas habilidades sociais"],
+  // Renomeado
+  situacao_dificil_superada: ["falhou miseravelmente", "foi rejeitado", "perdeu algo importante", "enfrentou um grande medo"],
+  // Renomeado
+  experiencia_aprendizado: ["um fracasso", "uma perda", "uma vitória inesperada", "um relacionamento", "uma viagem"],
+  // Renomeado
+  tipo_medo_profundo: ["medo irracional", "medo da infância", "medo existencial", "medo social"],
+  // Renomeado
+  tema_decisao_dificil: ["carreira", "amor", "amizade", "família", "mudança de vida"],
+  // Renomeado
+  sonho_aspiracao: ["viagem", "carreira", "relacionamento", "habilidade", "conquista pessoal"],
 
-  característica: ["inteligência", "senso de humor", "gentileza", "aparência", "criatividade"],
-  cenário: ["um bar", "uma festa", "um aplicativo de namoro", "uma livraria", "uma academia"],
-  objeto_sala: ["uma cadeira", "uma mesa", "um copo", "uma planta", "um quadro"],
-  experiência_romântica: ["primeiro beijo", "encontro", "declaração de amor", "término"],
-  local_romântico: ["Paris", "uma praia deserta", "um restaurante elegante", "um chalé na montanha"],
-  compromisso: ["namoro", "noivado", "casamento"],
-  pessoa_imaginária: ["sua celebridade crush", "seu tipo ideal", "seu amor platônico"],
-  tema_amor: ["amor à primeira vista", "amor não correspondido", "amor eterno", "paixão ardente"],
-  evento_romântico: ["casamento", "lua de mel", "aniversário de namoro", "pedido de casamento"],
-  gesto_romântico: ["beijo", "abraço", "presente surpresa", "declaração de amor"],
+  // Renomeado
+  caracteristica_elogio: ["inteligência", "senso de humor", "gentileza", "aparência", "criatividade"],
+  // Renomeado
+  cenario_flerte: ["um bar", "uma festa", "um aplicativo de namoro", "uma livraria", "uma academia"],
+  // Renomeado
+  objeto_sala_romantico: ["uma cadeira", "uma mesa", "um copo", "uma planta", "um quadro"],
+  // Renomeado
+  experiencia_romantica_memoravel: ["primeiro beijo", "encontro", "declaração de amor", "término"],
+  // Renomeado
+  local_romantico_detalhado: ["Paris", "uma praia deserta", "um restaurante elegante", "um chalé na montanha"],
+  // Renomeado
+  compromisso_romantico: ["namoro", "noivado", "casamento"],
+  // Renomeado
+  pessoa_imaginaria_mensagem: ["sua celebridade crush", "seu tipo ideal", "seu amor platônico"],
+  // Renomeado
+  tema_amor_serenata: ["amor à primeira vista", "amor não correspondido", "amor eterno", "paixão ardente"],
+  // Renomeado
+  evento_romantico_ideal: ["casamento", "lua de mel", "aniversário de namoro", "pedido de casamento"],
+  // Renomeado
+  gesto_romantico_dar: ["beijo", "abraço", "presente surpresa", "declaração de amor"],
 
-  ação_comum: ["tomando água", "checando o celular", "amarrando o sapato", "bocejando"],
-  cenário_fantasia: ["uma viagem", "um encontro às cegas", "uma festa", "um escritório"],
-  adjetivo_sensual: ["mais atraente", "mais sexy", "mais sedutor", "mais excitante"],
-  tema_provocante: ["um segredo", "um desejo", "um elogio", "um convite"],
-  ação_sedutora: ["beijasse", "abraçasse", "fizesse um elogio ousado", "convidasse para sair"],
-  emoção_sensual: ["atraído", "excitado", "seduzido", "desejado"],
-  local_íntimo: ["um hotel de luxo", "uma cabana isolada", "uma praia deserta", "um spa privativo"],
-  ação_romântica: ["beijo", "massagem", "dança lenta", "abraço"],
-}
+  // Renomeado
+  acao_comum_sedutora: ["tomando água", "checando o celular", "amarrando o sapato", "bocejando"],
+  // Renomeado
+  cenario_fantasia_erotica: ["uma viagem", "um encontro às cegas", "uma festa", "um escritório"],
+  // Renomeado
+  adjetivo_sensual_parceiro: ["mais atraente", "mais sexy", "mais sedutor", "mais excitante"],
+  // Renomeado
+  tema_provocante_sussurro: ["um segredo", "um desejo", "um elogio", "um convite"],
+  // Renomeado
+  acao_sedutora_inesperada: ["beijasse", "abraçasse", "fizesse um elogio ousado", "convidasse para sair"],
+  // Renomeado
+  emocao_sensual_inesperada: ["atraído", "excitado", "seduzido", "desejado"],
+  // Renomeado
+  local_intimo_sonho: ["um hotel de luxo", "uma cabana isolada", "uma praia deserta", "um spa privativo"],
+  // Renomeado
+  acao_romantica_sensual: ["beijo", "massagem", "dança lenta", "abraço"],
+};
 
 // Function to randomly select an item from an array
-const randomItem = (array: string[]) => {
-  return array[Math.floor(Math.random() * array.length)]
-}
+// Adicionado verificação de array vazio para evitar 'undefined'
+const randomItem = <T>(array: T[]): T | undefined => {
+  if (array.length === 0) {
+    return undefined;
+  }
+  return array[Math.floor(Math.random() * array.length)];
+};
+
+// Fisher-Yates shuffle algorithm for more efficient and truly random shuffling
+const shuffleArray = <T>(array: T[]): T[] => {
+  const newArray = [...array];
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+};
 
 // Function to fill in a template with random options
 const fillTemplate = (template: string): string => {
-  let filledTemplate = template
+  let filledTemplate = template;
 
-  // Find all placeholders in the format {placeholder}
-  const placeholders = template.match(/\{([^}]+)\}/g) || []
+  const placeholders = template.match(/\{([^}]+)\}/g) || [];
 
-  // Replace each placeholder with a random option
   placeholders.forEach((placeholder) => {
-    const key = placeholder.replace(/[{}]/g, "")
-    if (fillIns[key as keyof typeof fillIns]) {
-      const replacement = randomItem(fillIns[key as keyof typeof fillIns])
-      filledTemplate = filledTemplate.replace(placeholder, replacement)
+    const key = placeholder.replace(/[{}]/g, "");
+    const options = fillIns[key];
+    if (options && options.length > 0) {
+      const replacement = randomItem(options);
+      // Garantir que a substituição ocorra apenas se um item válido for retornado
+      if (replacement !== undefined) {
+        filledTemplate = filledTemplate.replace(placeholder, replacement);
+      } else {
+        // Fallback para caso não haja opção para o placeholder
+        filledTemplate = filledTemplate.replace(placeholder, `[${key} desconhecido]`);
+      }
+    } else {
+      filledTemplate = filledTemplate.replace(placeholder, `[${key} sem opções]`);
     }
-  })
+  });
 
-  return filledTemplate
-}
+  return filledTemplate;
+};
 
 // Main function to generate questions
 export const generateQuestions = (category: string, count: number): string[] => {
-  const result: string[] = []
-  const categoryTemplates = templates[category as keyof typeof templates] || []
-  const categorySeedQuestions = seedQuestions[category as keyof typeof seedQuestions] || []
+  const result: Set<string> = new Set(); // Usar Set para garantir unicidade automaticamente
+  const categoryTemplates = templates[category as keyof typeof templates] || [];
+  const categorySeedQuestions = seedQuestions[category as keyof typeof seedQuestions] || [];
 
-  // First add all seed questions
-  result.push(...categorySeedQuestions)
+  // Adicionar todas as perguntas iniciais
+  categorySeedQuestions.forEach(q => result.add(q));
 
-  // Then generate additional questions using templates
-  while (result.length < count) {
-    const template = randomItem(categoryTemplates)
-    const question = fillTemplate(template)
+  let attempts = 0;
+  const maxAttempts = count * 5; // Limite de tentativas para evitar loop infinito
 
-    // Only add if it's not a duplicate
-    if (!result.includes(question)) {
-      result.push(question)
+  // Gerar perguntas adicionais usando templates
+  while (result.size < count && attempts < maxAttempts) {
+    const template = randomItem(categoryTemplates);
+    if (template === undefined) {
+      // Se não há templates, saia do loop
+      console.warn(`No templates found for category: ${category}`);
+      break;
     }
+    const question = fillTemplate(template);
+    result.add(question);
+    attempts++;
   }
 
-  // Shuffle the array to mix seed and generated questions
-  return result.sort(() => Math.random() - 0.5)
-}
+  return shuffleArray(Array.from(result)).slice(0, count); // Converter para array, embaralhar e limitar
+};
 
 // Function to generate challenges from all categories or a specific category
 export const generateChallenges = (count: number, subcategory = "all"): string[] => {
-  const result: string[] = []
+  const result: Set<string> = new Set(); // Usar Set para garantir unicidade automaticamente
 
   if (subcategory === "all") {
-    // Add seed challenges from all categories
-    Object.values(seedChallenges).forEach((challenges) => {
-      result.push(...challenges)
-    })
+    // Adicionar desafios iniciais de todas as categorias
+    Object.values(seedChallenges).forEach((challengesArray) => {
+      challengesArray.forEach(c => result.add(c));
+    });
 
-    // Generate additional challenges using templates from all categories
-    while (result.length < count) {
-      // Randomly select a category
-      const categories = Object.keys(challengeTemplates)
-      const randomCategory = randomItem(categories)
+    let attempts = 0;
+    const maxAttempts = count * 5;
 
-      // Get templates for that category
-      const categoryTemplates = challengeTemplates[randomCategory as keyof typeof challengeTemplates]
-
-      // Generate a challenge using a random template
-      const template = randomItem(categoryTemplates)
-      const challenge = fillTemplate(template)
-
-      // Only add if it's not a duplicate
-      if (!result.includes(challenge)) {
-        result.push(challenge)
+    // Gerar desafios adicionais usando templates de todas as categorias
+    const allChallengeTemplates: string[] = Object.values(challengeTemplates).flat(); // Achatar todos os templates
+    while (result.size < count && attempts < maxAttempts) {
+      const template = randomItem(allChallengeTemplates);
+      if (template === undefined) {
+        console.warn("No challenge templates available for generation.");
+        break;
       }
+      const challenge = fillTemplate(template);
+      result.add(challenge);
+      attempts++;
     }
   } else {
-    // Add seed challenges from specific category
-    const categoryChallenges = seedChallenges[subcategory as keyof typeof seedChallenges] || []
-    result.push(...categoryChallenges)
+    // Adicionar desafios iniciais da subcategoria específica
+    const categoryChallenges = seedChallenges[subcategory as keyof typeof seedChallenges] || [];
+    categoryChallenges.forEach(c => result.add(c));
 
-    // Generate additional challenges using templates from specific category
-    const categoryTemplates = challengeTemplates[subcategory as keyof typeof challengeTemplates] || []
+    let attempts = 0;
+    const maxAttempts = count * 5;
 
-    while (result.length < count) {
-      // Generate a challenge using a random template
-      const template = randomItem(categoryTemplates)
-      const challenge = fillTemplate(template)
-
-      // Only add if it's not a duplicate
-      if (!result.includes(challenge)) {
-        result.push(challenge)
+    // Gerar desafios adicionais usando templates da subcategoria específica
+    const categoryTemplatesForChallenge = challengeTemplates[subcategory as keyof typeof challengeTemplates] || [];
+    while (result.size < count && attempts < maxAttempts) {
+      const template = randomItem(categoryTemplatesForChallenge);
+      if (template === undefined) {
+        console.warn(`No challenge templates found for subcategory: ${subcategory}`);
+        break;
       }
+      const challenge = fillTemplate(template);
+      result.add(challenge);
+      attempts++;
     }
   }
 
-  // Shuffle the array to mix seed and generated challenges
-  return result.sort(() => Math.random() - 0.5)
-}
+  return shuffleArray(Array.from(result)).slice(0, count); // Converter para array, embaralhar e limitar
+};
