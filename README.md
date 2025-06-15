@@ -66,6 +66,6 @@ A identidade do jogo é **minimalista, fofa e moderninha**, com uma paleta de co
 Desenvolvido com afeto por **Kássia Kellem**, para quem acredita que boas perguntas e conexões sinceras mudam tudo.💞
 <br> 
 <br>
-Acesse o jogo: [Conexão & Afetos](https://conexoes-afetos.vercel.app/)
+Acesse o jogo: [Conexões & Afetos](https://conexoes-afetos.vercel.app/)
 ---
 
