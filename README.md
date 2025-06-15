@@ -1,6 +1,6 @@
-# 💌 Conexão & Afeto
+# 💌 Conexões & Afetos
 
-**Conexão & Afeto** é um jogo de cartas **digital** criado para ser jogado **presencialmente** entre pessoas que desejam se conhecer melhor, gerar laços profundos, conversas sinceras e momentos de leveza, romance ou pura safadeza. <br>
+**Conexões & Afetos** é um jogo de cartas **digital** criado para ser jogado **presencialmente** entre pessoas que desejam se conhecer melhor, gerar laços profundos, conversas sinceras e momentos de leveza, romance ou pura safadeza. <br>
 Ideal para jogar entre amigos, casais ou pessoas que estão se conhecendo.
 <br>
 Embora seja pensado para encontros presenciais, o jogo também pode ser adaptado para **videochamadas**, aproximando mesmo quem está longe.
