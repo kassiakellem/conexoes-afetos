@@ -1,4 +1,8 @@
-# 💌 Conexões & Afetos
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/cf3dd487-2875-4f42-beb9-5f1c048052dd" width="50%" />
+</p>
+
+<h1 align="center"> 💌 Conexões & Afetos </h1>
 
 **Conexões & Afetos** é um jogo de cartas **digital** criado para ser jogado **presencialmente** entre pessoas que desejam se conhecer melhor, gerar laços profundos, conversas sinceras e momentos de leveza, romance ou pura safadeza. <br>
 Ideal para jogar entre amigos, casais ou pessoas que estão se conhecendo.
@@ -21,7 +25,7 @@ A ideia é estimular:
 
 ## 📁 Categorias
 
-- 🧩 **Casual** – perguntas leves e cotidianas para iniciar o papo.
+- 😂 **Casual** – perguntas leves e cotidianas para iniciar o papo.
 - 🌀 **Profundas** – perguntas que despertam reflexões e conexão emocional.  
 - 💗 **Românticas** – para cultivar o carinho, o encanto e a admiração.  
 - 🔥 **Eróticas** – provocações picantes com respeito e consentimento.  
